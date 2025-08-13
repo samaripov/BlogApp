@@ -9,4 +9,10 @@ class ArticleTest < ActiveSupport::TestCase
     article = Article.new
     assert_not article.save, "Saved the article without title."
   end
+
+  test "should report error" do
+    assert_raises(NameError) do
+      some_undefined_var
+    end
+  end
 end
