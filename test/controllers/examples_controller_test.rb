@@ -34,6 +34,7 @@ class ExamplesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update example" do
+     post examples_url,          params: { example: {} }
     patch example_url(@example), params: { example: {} }
     assert_redirected_to example_url(@example)
   end

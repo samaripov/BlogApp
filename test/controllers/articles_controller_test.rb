@@ -24,7 +24,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_select "#article_body_field"
   end
 
-  test "Should create a new article" do
+  test "Should create a new article: Success" do
     assert_difference("Article.count") do
       post articles_url, params: { article: { title: @article.title, body: "" } }
     end
@@ -32,12 +32,21 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     created_article = Article.last
     assert_redirected_to created_article
   end
-
   test "Should get the edit article page" do
     get edit_article_url(@article)
     assert_response :success
     assert_select "#page-title", "Editing \"#{@article.title}\" article"
     assert_select "#article_title_field"
     assert_select "#article_body_field"
+  end
+
+  test "Should edit the article title" do
+    post articles_url, params: { article: { title: @article.title, body: @article.body } }
+    last_article = Article.last
+    patch article_url(last_article), params: { article: { title: "New Title!", body: "New Body!" } }
+    last_article.reload
+    assert_equal "New Title!", last_article.title
+    assert_equal "New Body!", last_article.body
+    assert_redirected_to article_url(last_article)
   end
 end
