@@ -24,7 +24,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_select "#article_body_field"
   end
 
-  test "Should create a new article: Success" do
+  test "Should create a new article" do
     assert_difference("Article.count") do
       post articles_url, params: { article: { title: @article.title, body: "" } }
     end
@@ -48,5 +48,15 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_equal "New Title!", last_article.title
     assert_equal "New Body!", last_article.body
     assert_redirected_to article_url(last_article)
+  end
+
+  test "Should delete the article" do
+    post articles_url, params: { article: { title: @article.title, body: @article.body } }
+    last_article = Article.last
+
+    last_article.destroy
+    assert_raises(ActiveRecord::RecordNotFound) do
+      Article.find(last_article.id)
+    end
   end
 end
