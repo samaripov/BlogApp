@@ -1,0 +1,8 @@
+<%= form_with model: @article do |form|%>
+  <div>
+    <%= form.text_field :article, placeholder: "Article Title", id: "article_title_field" %>
+  </div>
+  <div>
+    <%= form.submit "Post Article"%>
+  </div>
+<% end %>
