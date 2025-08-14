@@ -21,6 +21,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "#page-title", "Writting a new article"
     assert_select "#article_title_field"
+    assert_select "#article_body_field"
   end
 
   test "Should create a new article" do
@@ -37,5 +38,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "#page-title", "Editing \"#{@article.title}\" article"
     assert_select "#article_title_field"
+    assert_select "#article_body_field"
   end
 end
