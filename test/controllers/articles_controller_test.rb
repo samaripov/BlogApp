@@ -23,6 +23,15 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_select "#article_title_field"
   end
 
+  test "Should create a new article" do
+    assert_difference("Article.count") do
+      post articles_url, params: { article: { title: @article.title, body: "" } }
+    end
+
+    created_article = Article.last
+    assert_redirected_to created_article
+  end
+
   test "Should get the edit article page" do
     get edit_article_url(@article)
     assert_response :success
