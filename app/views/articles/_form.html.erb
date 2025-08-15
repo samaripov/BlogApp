@@ -1,7 +1,7 @@
 <%= form_with model: @article do |form|%>
   <div>
     <%= form.text_field :title, placeholder: "Article Title", id: "article_title_field" %>
-    <%= form.rich_text_area :body, id: "article_body_field" %>
+    <%= form.rich_textarea :body, id: "article_body_field" %>
   </div>
   <div>
     <%= form.submit "Post Article"%>

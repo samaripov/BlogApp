@@ -1,4 +1,4 @@
 class Article < ApplicationRecord
-  has_one_attached :thumbnail
   validates_presence_of :title
+  has_rich_text :body
 end

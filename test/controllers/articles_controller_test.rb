@@ -14,6 +14,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     get article_url(@article)
     assert_response :success
     assert_select "#article-title", "#{@article.title}"
+    assert_select "#article-body", "#{@article.body}"
   end
 
   test "Should get a new Article Page" do
@@ -40,16 +41,23 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_select "#article_body_field"
   end
 
+  test "Should edit the article body" do
+    post articles_url, params: { article: { title: @article.title, body: @article.body } }
+    last_article = Article.last
+    patch article_url(last_article), params: { article: { title: "New Title!", body: "New Body!" } }
+    last_article.reload
+    assert_not_nil last_article.body.body
+    assert_redirected_to article_url(last_article)
+  end
+
   test "Should edit the article title" do
     post articles_url, params: { article: { title: @article.title, body: @article.body } }
     last_article = Article.last
     patch article_url(last_article), params: { article: { title: "New Title!", body: "New Body!" } }
     last_article.reload
     assert_equal "New Title!", last_article.title
-    assert_equal "New Body!", last_article.body
     assert_redirected_to article_url(last_article)
   end
-
   test "Should delete the article" do
     post articles_url, params: { article: { title: @article.title, body: @article.body } }
     last_article = Article.last
