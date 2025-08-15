@@ -1,0 +1,21 @@
+a, button, input[type="submit"] {
+  border: 1px solid red;
+  background: red;
+  color: white;
+  font-weight: bold;
+  font-size: larger;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 1rem 0.5rem;
+  margin: 0.5rem;
+  width: fit-content;
+  border-radius: 0.5rem;
+}
+
+a:hover, button:hover, input[type="submit"]:hover {
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  color: red;
+}
+
+

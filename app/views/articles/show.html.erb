@@ -1,4 +1,4 @@
 <%= link_to "Edit", edit_article_path(@article)%>
 <%= button_to "Delete", @article, method: :delete, data: {turbo_confirm: "Are you sure?"}%>
 <h1 id="article-title"><%= @article.title %></h1>
-<div id="article-body"><%= @article.body %></div>
+<div id="article-body" class="content"><%= @article.body %></div>

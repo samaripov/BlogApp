@@ -8,7 +8,8 @@ trix-editor {
   margin: 0;
   padding: 0.4em 0.6em;
   min-height: 5em;
-  outline: none; }
+  outline: none; 
+}
 
 trix-toolbar * {
   box-sizing: border-box; }
@@ -22,10 +23,7 @@ trix-toolbar .trix-button-row {
 trix-toolbar .trix-button-group {
   display: flex;
   margin-bottom: 10px;
-  border: 1px solid #bbb;
-  border-top-color: #ccc;
-  border-bottom-color: #888;
-  border-radius: 3px; }
+}
   trix-toolbar .trix-button-group:not(:first-child) {
     margin-left: 1.5vw; }
     @media (max-width: 768px) {
@@ -39,28 +37,30 @@ trix-toolbar .trix-button-group-spacer {
       display: none; } }
 
 trix-toolbar .trix-button {
+  background: white;
   position: relative;
+  border: none;
   float: left;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgb(255, 255, 255);
   font-size: 0.75em;
   font-weight: 600;
   white-space: nowrap;
   padding: 0 0.5em;
-  margin: 0;
+  margin: 0.1rem;
   outline: none;
   border: none;
-  border-bottom: 1px solid #ddd;
-  border-radius: 0;
-  background: transparent; }
-  trix-toolbar .trix-button:not(:first-child) {
-    border-left: 1px solid #ccc; }
+  border-radius: 0.5rem;
+ }
+ trix-toolbar .trix-button:hover {
+  background: rgb(255, 162, 162);
+ }
   trix-toolbar .trix-button.trix-active {
-    background: #cbeefa;
+    background: #ff1100;
     color: black; }
   trix-toolbar .trix-button:not(:disabled) {
     cursor: pointer; }
   trix-toolbar .trix-button:disabled {
-    color: rgba(0, 0, 0, 0.125); }
+    color: rgba(255, 255, 255, 0.125); }
   @media (max-width: 768px) {
     trix-toolbar .trix-button {
       letter-spacing: -0.01em;
@@ -266,7 +266,7 @@ trix-editor .trix-button-group {
 trix-editor .trix-button {
   position: relative;
   float: left;
-  color: #666;
+  color: #ffffff;
   white-space: nowrap;
   font-size: 80%;
   padding: 0 0.8em;
@@ -278,7 +278,7 @@ trix-editor .trix-button {
   trix-editor .trix-button:not(:first-child) {
     border-left: 1px solid #ccc; }
   trix-editor .trix-button.trix-active {
-    background: #cbeefa; }
+    background: #ff2020; }
   trix-editor .trix-button:not(:disabled) {
     cursor: pointer; }
 
@@ -338,7 +338,7 @@ trix-editor .attachment__metadata {
     white-space: nowrap; }
 
 .trix-content {
-  line-height: 1.5;
+  line-height: 2;
   overflow-wrap: break-word;
   word-break: break-word; }
   .trix-content * {
@@ -371,7 +371,8 @@ trix-editor .attachment__metadata {
     font-size: 0.9em;
     padding: 0.5em;
     white-space: pre;
-    background-color: #eee;
+    border-radius: 0.5rem;
+    background-color: #737373;
     overflow-x: auto; }
   .trix-content img {
     max-width: 100%;
