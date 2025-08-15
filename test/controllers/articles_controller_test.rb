@@ -62,7 +62,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     post articles_url, params: { article: { title: @article.title, body: @article.body } }
     last_article = Article.last
 
-    last_article.destroy
+    delete article_url(last_article)
     assert_raises(ActiveRecord::RecordNotFound) do
       Article.find(last_article.id)
     end
