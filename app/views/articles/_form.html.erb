@@ -1,7 +1,14 @@
 <div class="content">
   <%= form_with model: @article do |form|%>
     <div>
+      <%= form.label :title%>
       <%= form.text_field :title, placeholder: "Article Title", id: "article_title_field" %>
+    </div>
+    <div>
+      <%= form.label :thumbnail%>
+      <%= form.file_field :thumbnail, accept: "image/*" %>
+    </div>
+    <div>
       <%= form.rich_textarea :body, id: "article_body_field" %>
     </div>
     <div>

@@ -1,0 +1,5 @@
+<div class="article_card">
+  <%= link_to article do %>
+    <%= image_tag article.thumbnail if article.thumbnail.attached?%>
+  <% end %>
+</div>
